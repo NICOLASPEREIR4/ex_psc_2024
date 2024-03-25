@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+  public class Main {
+    public static void main(String[] args) {
+
+      //Declara variaveis 
+      String nome, senha;
+      Scanner leia = new Scanner(System.in);
+      do{
+        //Entrada de dados
+        System.out.println("Digite o nome do usuario: ");
+        nome = leia.next();
+        System.out.println("Digite a senha: ");
+        senha = leia.next();
+        //Verificar se a senha é igual ao nome
+        if(nome.equals(senha)){
+          System.out.println("Senha deve ser diferente do usuario"); 
+        }
+
+      }while(nome.equals(senha));
+      System.out.println("Cadastro realizado com sucesso !");
+      leia.close();
+    }
+  }
+  
+  

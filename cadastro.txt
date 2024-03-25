@@ -1,0 +1,59 @@
+    import java.util.Scanner;
+
+    public class Main {
+    public static void main(String[] args) {
+
+    //Declarar variaveis 
+    String nome, sexo, estado_civil ;
+    int idade;
+    double salario;
+    
+    //Ler dados
+    Scanner entrada = new Scanner(System.in);
+    
+            //Validação do nome
+            do{
+            System.out.println("Digite o nome: ");
+            nome = entrada.nextLine(); 
+            } while (nome.length() < 3);
+    
+            //Validação da idade
+            do{
+            System.out.println("Digite a idade: ");
+            idade = entrada.nextInt(); 
+            }while (idade < 0 || idade > 150);
+    
+            //Validação do salario
+            do{
+            System.out.println("Digite o salario: ");
+            salario = entrada.nextDouble();
+            }while(salario < 0);
+    
+            //Validação do sexo
+            do{
+            System.out.println("Digite seu sexo: ");
+            sexo = entrada.next();
+            if(!sexo.equals("M") || !sexo.equals("F") ){
+            }
+            }while(!(sexo.equals("M") || sexo.equals("F")));
+    
+            //Validação do estado civil
+            do{
+            System.out.println("Digite seu estado civil: ");
+            estado_civil = entrada.next();
+            if(!estado_civil.equals("S") || !estado_civil.equals("C") || !estado_civil.equals("V") || !estado_civil.equals("D")){
+            }
+            }while(!(estado_civil.equals("S") || estado_civil.equals("C") || estado_civil.equals("V") || estado_civil.equals("D")));
+
+            System.out.println("Esses são seus dados:");
+
+            //Imprimir dados
+            System.out.println("Nome: " + nome);
+            System.out.println("Idade: " + idade);
+            System.out.println("Salario: " + salario);
+            System.out.println("Sexo: " + sexo);
+            System.out.println("Estado civil: " + estado_civil);
+
+            entrada.close();
+  }
+}
