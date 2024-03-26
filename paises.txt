@@ -1,0 +1,23 @@
+
+public class Main {
+  public static void main(String[] args) {
+    // Declara variaveis
+    int polulacao_A, polulacao_B, anos = 0;
+    double taxa_A, taxa_B;
+    // Inicializar variaveis
+    polulacao_A = 80000;
+    polulacao_B = 200000;
+    taxa_A = 0.03;
+    taxa_B = 0.015;
+    // Calcular a quantidade de anos necessaria para que a população do país A
+    // ultrapasse ou se iguale a população do país B
+    do {
+      polulacao_A = polulacao_A + (int) (polulacao_A * taxa_A);
+      polulacao_B = polulacao_B + (int) (polulacao_B * taxa_B);
+      anos++;
+    } while (polulacao_A < polulacao_B);
+    System.out.println(
+        "Para que a população do país A ultrapasse ou se iguale a população do país B são necessários: " + anos + " anos");
+
+  }
+}

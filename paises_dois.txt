@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner ler = new Scanner(System.in);
+      //Declara variaveis 
+      int populacaoA, populacaoB, anos = 0;
+      double taxaA, taxaB;
+      //Lê os dados e valida 
+      do{
+        System.out.println("Digite a população do país A: ");
+        populacaoA = ler.nextInt();
+        if (populacaoA <= 0){
+          System.out.println("População inválida !");
+        }
+      }while (populacaoA <= 0);
+      // lê e valida a taxa de crescimento da populacão A
+      do{
+        System.out.println("Digite a taxa de crescimento anual do país A: ");    
+        taxaA = ler.nextDouble();
+        if (taxaA <= 0){
+          System.out.println("Taxa de crescimento inválida, a taxa não pode ser menor que 0!");
+        }
+     }while (taxaA <= 0);
+      // lê  populacão B
+    do{
+      System.out.println("Digite a população do país B: ");
+      populacaoB = ler.nextInt();
+      if (populacaoB <= 0 || populacaoB < populacaoA){
+        System.out.println("População inválida !");
+      }
+    }while(populacaoB <= 0 || populacaoB < populacaoA);
+    // lê taxa e valida a taxa de crescimento da populacão B
+    do{
+      System.out.println("Digite a taxa de crescimento anual do país B: ");
+      taxaB = ler.nextDouble();
+      if (taxaB > taxaA){
+        System.out.println("A taxa de crecimento do país B não pode ser maior que a do país A!");
+      }
+      }while (taxaB > taxaA);
+      
+      //Calcula a população
+      do{
+        populacaoA = (int) (populacaoA + (populacaoA * taxaA / 100));
+        populacaoB = (int) (populacaoB + (populacaoB * taxaB / 100));
+        anos++;
+      }
+      while (populacaoA < populacaoB);
+        //Exibe o resultado
+        System.out.println("Serão necessários " + anos + " anos para que a população do país A ultrapasse ou iguale a população do país B.");
+    ler.close();
+  }
+  
+}

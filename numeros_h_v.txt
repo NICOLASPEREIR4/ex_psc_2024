@@ -1,0 +1,15 @@
+public class Main {
+  public static void main(String[] args) {
+    //Declara variaveis 
+    int i;
+    //imprime na tela os números de 1 a 20
+    System.out.println("Números de 1 a 20 na vertical: ");
+    for (i = 1; i <= 20; i++){
+      System.out.println(i);
+    }
+    //Impreme na tela os números de 1 a 20 na horizontal
+    System.out.println("Números de 1 a 20 na horizontal: ");
+    for (i = 1; i <= 20; i++)
+      System.out.print(i + " ");
+  }
+}
