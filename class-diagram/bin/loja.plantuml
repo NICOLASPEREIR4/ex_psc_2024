@@ -1,0 +1,114 @@
+        @startuml SistemaDeVendas
+    class CadastroUsuario{
+        - Int IdUsuario
+        - String NomeUsuario 
+        - Char EmailUsuario
+        - Int TelefoneUsuario
+        - Char CPFUsuario
+        - String TipoDeUsuario
+        - String Endereco
+        - String Login
+        - String Senha
+
+
+        + verificaTipoDeUsuario(IdUsuario: Int): void
+   }
+
+    class Produto{
+        - Int IdProduto
+        - String nomeProduto
+        - int valorProduto
+
+        + cadastraProduto(): void
+        + alterarProduto(): void
+        + listarProduto(): ArrayList
+        + buscarProduto(): void
+    }
+    class Estoque{
+        - Long Quantidade
+
+        + entradaProduto(): void
+        + saidaProduto(): void
+        + buscarProduto(): void
+        + listarProduto(): ArrayList
+    }
+    class Cliente {
+        - Int IdUsuario
+        - String NomeUsuario
+        - String EnderecoCliente
+        - String CPFUsuario
+        - String Login
+        - String Senha
+
+        + Efetuar_login(): void
+        + CadastraCliente(): void
+        + VisualizaCliente(): void
+        + AlteraCliente(): void
+    }
+    class Funcionário {
+       - Int IdUsuario  
+       - String NomeUsuario 
+       - String Cargo
+       - String Salario 
+       - String Login
+       - String Senha
+
+       + Efetuar_login(): void
+       + Alterar() : void 
+       + Cadastrar(): void
+       + Listar(): arrayList
+       + Buscar(): void
+
+    }
+    class Pedido{
+        - Int IdPedido
+        - Int IdCliente
+        - Float Calculopedido
+
+        + calculrTotalPedido(): void
+        + adicionarProduto(IdProduto: Int): void
+        + retiraProduto(IdProduto: Int): void
+        + valorDoPedido(IdPedido: Int): void
+        + enviarValordosProdutos(IdPedido: Int): void
+        + concluirPedido(Id Pedido): void
+        + statusPagamento(IdPedido: Int): void   
+    }
+    class Carrinho {
+        - Int IdCarrinho
+        - int IdProduto
+        - int IdPedido
+        - int quantidade
+        - ArrayList ListadeProdutos 
+
+        + alterarQuantidad(IdProduto : Int): void
+        + listarProduto(IdCarrinho : Int): void 
+        
+    }
+
+
+    class Pagamento{
+        - Int IdPagamento
+        - String FormaPagamento
+        - String Descricao
+
+        + escolherFormaDePagamento(): void
+        + retornaFormaDePagamento(): void
+        + insereFormaDePagamento(): void
+        + removeFormaDePagamento(): void
+        + enviaValorPedido(): void
+        + calculaPedido(): void 
+    }
+
+
+    Cliente --> Produto : compra o 
+    Cliente --> CadastroUsuario: faz o 
+    Cliente --> Pedido: realiza 
+    Produto --> Estoque: mantido em 
+    Cliente --> Pagamento: faz 
+    Funcionário --> Estoque: movimenta o 
+    Funcionário --> CadastroUsuario: faz o 
+    Pedido --> Carrinho: possui 
+    Carrinho --> Produto: possui  
+    Pagamento --> Pedido: possui 
+
+@enduml
